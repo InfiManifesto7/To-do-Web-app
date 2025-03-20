@@ -11,75 +11,82 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="main.css" />
+    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+    
   </head>
   <body>
+    <div id="root">
+      <header class="header">
+        <h1>Todo Bubble</h1>
+        <button id="theme-toggle" class="theme-toggle">
+          <span class="light">☀️</span>
+          
+        </button>
+      </header>
+    </div>
     <main class="app">
-      <section class="greeting">
-        <h2 class="title">
-          whats up , <input type="text" id="name" placeholder="Name here" />
-        </h2>
-      </section>
-      <section class="create-todo">
-        <h3>CREATE A TODO</h3>
-        <form id="new-todo-form">
-          <h4>What's on your todo?</h4>
-          <input
-            type="text"
-            name="content"
-            id="content"
-            placeholder="e.g. make a video"
-          />
-          <h4>Pick a Category</h4>
-          <div class="options">
-            <label>
-              <input
-                type="radio"
-                name="category"
-                id="category1"
-                value="business"
-              />
-              <span class="bubble business"></span>
-              <div>Business</div>
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="category"
-                id="category2"
-                value="personal"
-              />
-              <span class="bubble personal"></span>
-              <div>Personal</div>
-            </label>
-          </div>
-          <input type="submit" value="Add todo" />
-        </form>
-      </section>
-      <section class="to-do-list">
-        <h3>TO DO LIST</h3>
-        <div class="list" id="todo-list">
-          <div class="todo-item">
-            <label>
-              <input type="checkbox" />
-              <span class="bubble business"></span>
-            </label>
-            <div class="todo-context">
-              <input type="text" value=" e.g. make a video" readonly />
-            </div>
-            <label>
-                <input type="checkbox" />
-                <span class="bubble personal"></span>
-              </label>
-              <div class="todo-context">
-                <input type="text" value=" e.g. make a cake" readonly />
+      <div class="app-container">
+        <section class="to-do-list">
+          <h3>TO DO LIST</h3>
+          <div class="todo-lists-container">
+            <div class="todo-list-section">
+              <h4>Personal</h4>
+              <div class="list" id="personal-todo-list">
+                
               </div>
-            <div class="actions">
-              <button class="edit">Edit</button>
-              <button class="delete">Delete</button>
+            </div>
+            <div class="todo-list-section">
+              <h4>Business</h4>
+              <div class="list" id="business-todo-list">
+                
+              </div>
             </div>
           </div>
+        </section>
+        <div class="right-side-container">
+          <section class="greeting">
+            <h2 class="title">
+              whats up , <input type="text" id="name" placeholder="Name here" />
+            </h2>
+          </section>
+          <section class="create-todo">
+            <h3>CREATE A TODO</h3>
+            <form id="new-todo-form">
+              <h4>What's on your todo?</h4>
+              <input
+                type="text"
+                name="content"
+                id="content"
+                placeholder="e.g. make a video"
+              />
+              <h4>Pick a Category</h4>
+              <div class="options">
+                <label>
+                  <input
+                    type="radio"
+                    name="category"
+                    id="category1"
+                    value="business"
+                  />
+                  <span class="bubble business"></span>
+                  <div>Business</div>
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="category"
+                    id="category2"
+                    value="personal"
+                  />
+                  <span class="bubble personal"></span>
+                  <div>Personal</div>
+                </label>
+              </div>
+              <input type="submit" value="Add todo" />
+            </form>
+          </section>
         </div>
-      </section>
+      </div>
     </main>
     <script src="main.js"></script>
   </body>
