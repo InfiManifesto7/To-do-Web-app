@@ -31,9 +31,14 @@ window.addEventListener('load', () => {
 		updateThemeToggleIcon(isDark ? 'dark' : 'light');
 	});
 })
-function DisplayTodos () {
-	const todoList = document.querySelector('#todo-list');
-	todoList.innerHTML = "";
+
+function DisplayTodos() {
+	const businessTodoList = document.querySelector('#business-todo-list');
+	const personalTodoList = document.querySelector('#personal-todo-list');
+
+	businessTodoList.innerHTML = "";
+	personalTodoList.innerHTML = "";
+
 	todos.forEach(todo => {
 		const todoItem = document.createElement('div');
 		todoItem.classList.add('todo-item');
@@ -66,7 +71,6 @@ function DisplayTodos () {
 		todoItem.appendChild(label);
 		todoItem.appendChild(content);
 		todoItem.appendChild(actions);
-		todoList.appendChild(todoItem);
 		if (todo.done) {
 			todoItem.classList.add('done');
 		}
@@ -96,11 +100,18 @@ function DisplayTodos () {
 			localStorage.setItem('todos', JSON.stringify(todos));
 			DisplayTodos()
 		})
+
+		if (todo.category === 'business') {
+			businessTodoList.appendChild(todoItem);
+		} else if (todo.category === 'personal') {
+			personalTodoList.appendChild(todoItem);
+		}
 	})
 }
+
 function updateThemeToggleIcon(theme) {
-    const themeToggle = document.querySelector('#theme-toggle');
-    themeToggle.innerHTML = theme === 'dark' ? '🌙' : '☀️';
+	const themeToggle = document.querySelector('#theme-toggle');
+	themeToggle.innerHTML = theme === 'dark' ? '🌙' : '☀️';
 }
 
 
